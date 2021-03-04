@@ -1,7 +1,11 @@
 language: python
-
 python:
-  - 3.7
-
+  - "3.6"
+install:
+  - pip install pytest
+  - pip install pytest-cov
+  - pip install coveralls
 script:
-  - pytest
+  - pytest --cov=unit_testing/
+after_success:
+  - coveralls
